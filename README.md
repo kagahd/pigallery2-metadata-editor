@@ -46,7 +46,7 @@ ports:
   - "9089:9089"   # Metadata API
 ```
 
-Your `start.sh` should ensure that the metadata API is listening on the same internal port as defined here:
+Your [start.sh](./exifapi/start.sh) should ensure that the metadata API is listening on the same internal port as defined here:
 
 ```bash
 #!/bin/bash
