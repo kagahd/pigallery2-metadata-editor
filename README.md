@@ -36,9 +36,23 @@ cd src
 docker-compose up -d --build
 ```
 
-Make sure to map your image folders in `docker-compose.yml` to `/app/data/images/...`, as this is where PiGallery2 and the API expect them to reside.
 
-Example ports section:
+### Configuration Notes
+
+You must provide valid volume mappings for the following paths to ensure PiGallery2 works correctly.
+Make sure to map your image folders in `docker-compose.yml` to `/app/data/images/...`, as this is where both PiGallery2 and the metadata editing API expect them to reside.
+
+```yaml
+volumes:
+  - "<YOUR_PIGALLERY2_DB_PATH>:/app/data/db"         # Path to your PiGallery2 SQLite database
+  - "<YOUR_PIGALLERY2_CONFIG_PATH>:/app/data/config" # Path to your PiGallery2 config directory
+  - "<YOUR_PIGALLERY2_TMP_PATH>:/app/data/tmp"       # Path used for temp file storage
+  - "<YOUR_PIGALLERY2_IMAGES_PATH>:/app/data/images" # Path to your photo/video folders
+```
+
+Replace the `<YOUR_PIGALLERY2_...>` placeholders with paths on your host system that point to your actual PiGallery2 directories and media.
+
+Example `ports` section:
 
 ```yaml
 ports:
