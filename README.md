@@ -13,6 +13,8 @@ For example, I use the [F-Stop Gallery app](https://www.fstopapp.com) on Android
 - Immediate visual updates in PiGallery2 after saving metadata – no restart or rescan necessary.
 - Modified files synced back to mobile (e.g. F-Stop) show updated tags instantly.
 - Safe: all changes are performed via `exiftool`, optionally with a backup created.
+- This setup leaves the PiGallery2 source **completely untouched**, so you benefit from future updates without merge conflicts.
+
 
 ## Architecture
 
@@ -95,12 +97,6 @@ From there, you can:
 ## ExifTool Config
 
 The file `ExifTool_config` is required **only** to support the `XMP-fstop:Favorite` tag used by the F-Stop Android app. You may extend this file to define additional custom tags.
-
-## Notes
-
-- This setup leaves the PiGallery2 source **completely untouched**, so you benefit from future updates without merge conflicts.
-- Metadata edits are instantly visible in PiGallery2 when you revisit a folder.
-- Changes are also immediately reflected back in F-Stop Gallery on Android after syncing the modified images.
 
 ## License
 
