@@ -4,12 +4,12 @@ A web-based metadata editor for [PiGallery2](https://github.com/bpatrik/pigaller
 
 ## Why?
 
-Although PiGallery2 is designed as a **read-only** photo gallery (a wise decision for safety), I often find myself wanting to make quick adjustments to photo metadata – especially when viewing pictures on the web.
+Although PiGallery2 is designed as a **read-only** photo gallery (a wise decision for safety), I often find myself wanting to make quick adjustments to photo and video metadata – especially when viewing pictures on the web.
 
-For example, I use the [F-Stop Gallery app](https://www.fstopapp.com) on Android to organize and tag my photos directly on the phone. F-Stop uses a custom XMP tag (`XMP-fstop:Favorite`) to mark favorites. While this works great on mobile, I wanted a way to adjust this **Favorite** tag (as well as Ratings and Tags) directly while browsing photos in PiGallery2 – without having to go back to the phone.
+For example, I use the [F-Stop Gallery app](https://www.fstopapp.com) on Android to organize and tag my photos and videos directly on the phone. F-Stop uses a custom XMP tag (`XMP-fstop:Favorite`) to mark favorites. While this works great on mobile, I wanted a way to adjust this **Favorite** tag (as well as Ratings and Tags) directly while browsing photos and videos in PiGallery2 – without having to go back to the phone.
 
 ### Key Benefits:
-- Tag or rate photos directly in your browser while viewing them in PiGallery2.
+- Tag or rate photos and videos directly in your browser while viewing them in PiGallery2.
 - Immediate visual updates in PiGallery2 after saving metadata – no restart or rescan necessary.
 - Modified files synced back to mobile (e.g. F-Stop) show updated tags instantly.
 - Safe: all changes are performed via `exiftool`, optionally with a backup created.
@@ -39,7 +39,7 @@ docker-compose up -d --build
 
 ### Configuration Notes
 
-You must provide valid volume mappings for the following paths to ensure PiGallery2 works correctly.
+You must provide valid volume mappings in `docker-compose.yml` for the following paths to ensure PiGallery2 works correctly.
 Make sure to map your image folders in `docker-compose.yml` to `/app/data/images/...`, as this is where both PiGallery2 and the metadata editing API expect them to reside.
 
 ```yaml
