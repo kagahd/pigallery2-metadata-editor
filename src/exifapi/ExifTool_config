@@ -1,0 +1,17 @@
+%Image::ExifTool::UserDefined = (
+    'Image::ExifTool::XMP::Main' => {
+        fstop => { # define new namespace in XMP
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::fstop',
+            },
+        },
+    },
+);
+
+%Image::ExifTool::UserDefined::fstop = (
+    GROUPS    => { 0 => 'XMP', 1 => 'XMP-fstop', 2 => 'F-Stop' },
+    NAMESPACE => { 'fstop' => 'http://www.fstopapp.com/xmp/' },
+    WRITABLE  => 'string',  # alle Tags dieses Tables als String behandelbar
+    favorite  => {},        # definiert das Tag "favorite" (Wert als String)
+);
+

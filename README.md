@@ -32,8 +32,8 @@ The metadata editor consists of:
 You can build and start everything with:
 
 ```bash
-docker-compose build
-docker-compose up -d
+cd src
+docker-compose up -d --build
 ```
 
 Make sure to map your image folders in `docker-compose.yml` to `/app/data/images/...`, as this is where PiGallery2 and the API expect them to reside.
@@ -68,6 +68,15 @@ From there, you can:
 - Paste the PiGallery2 image URL
 - Read or update tags (Favorite, Rating, Tags)
 - Optionally create a backup of the file before modifying
+
+## Screenshot of loaded metadata
+
+![Screenshot of loaded metadata.](./img/metadataLoaded.png)
+
+## Screenshot of saved metadata
+
+![Screenshot of saved metadata.](./img/metadataSaved.png)
+ 
 
 ## ExifTool Config
 
