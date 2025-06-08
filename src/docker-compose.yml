@@ -8,11 +8,11 @@ services:
     environment:
       - NODE_ENV=production # set to 'debug' for full debug logging
     volumes:
-      - ./exifapi/ui:/exifapi/ui     # static files as volume
-      - "/Users/kay.agahd/Downloads/PigalleryExifTest/TestBilder/data2/db:/app/data/db"
-      - "/Users/kay.agahd/Downloads/PigalleryExifTest/TestBilder/data2/config:/app/data/config" # CHANGE ME
-      - "/Users/kay.agahd/Downloads/PigalleryExifTest/TestBilder/data2/tmp:/app/data/tmp" # CHANGE ME
-      - "/Users/kay.agahd/Downloads/PigalleryExifTest/TestBilder/Fotos:/app/data/images/Fotos"
+      - ./exifapi/ui:/exifapi/ui                         # static files as volume
+      - "<YOUR_PIGALLERY2_DB_PATH>:/app/data/db"         # CHANGE ME
+      - "<YOUR_PIGALLERY2_CONFIG_PATH>:/app/data/config" # CHANGE ME
+      - "<YOUR_PIGALLERY2_TMP_PATH>:/app/data/tmp"       # CHANGE ME
+      - "<YOUR_PIGALLERY2_IMAGES_PATH>:/app/data/images" # CHANGE ME
     ports:
       - 9088:80    # PiGallery2 external:internal ports
       - 9089:9089  # Metadata-API external:internal ports
