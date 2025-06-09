@@ -88,14 +88,15 @@ From there, you can:
 ### Bookmarklet
 
 If you are too lazy to copy & paste the PiGallery2 image URL, just add a bookmark to your browser with the following content. 
-Replace <METADATA_API_HOST> and <METADATA_API_PORT> by your metadata-API host and port.
-Click this bookmark while viewing a specific photo or video in PiGallery2 in order to open the metadata editor prefilled already with the right image URL. 
+Replace `<METADATA_API_PORT>` by your metadata-API port.
+Click this bookmark while viewing a specific photo or video in PiGallery2 to open the metadata editor prefilled already with the right image URL. 
 
 ```javascript
 javascript:(function(){
   const p = new URL(window.location.href);
   if (p.pathname.includes('/gallery')) {
-    const target = 'http://<METADATA_API_HOST>:<METADATA_API_PORT>/meta/index.html?img=' + encodeURIComponent(p.href);
+    const base = p.origin.replace(/:\d+$/, ':<METADATA_API_PORT>');
+    const target = base + '/meta/index.html?img=' + encodeURIComponent(p.href);
     window.open(target, '_blank');
   } else {
     alert('Not a PiGallery2 image page');
