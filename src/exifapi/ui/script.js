@@ -21,6 +21,15 @@ async function loadConfig() {
 
 
 window.addEventListener("DOMContentLoaded", async () => {
+  const urlParam = new URLSearchParams(window.location.search).get("img");
+  if (urlParam) {
+    const input = document.getElementById("galleryUrl");
+    input.value = urlParam;
+    console.log("🔗 Image URL from query parameter prefilled:", urlParam);
+  } else {
+    console.log("ℹ️ No ?img=... parameter provided");
+  }
+
   await loadConfig();
 
   document.getElementById("metaForm").addEventListener("submit", async function (e) {
