@@ -14,9 +14,6 @@ COPY ./exifapi /exifapi
 # make start script runnable
 RUN chmod +x /exifapi/start.sh
 
-# start Metadata-API
-CMD ["/exifapi/start.sh"]
-
-# start PiGallery2
-ENTRYPOINT ["node", "./src/backend/index", "--expose-gc",  "--config-path=/app/data/config/config.json"]
+# start both Metadata-API and PiGallery2
+ENTRYPOINT ["/exifapi/start.sh"]
 
