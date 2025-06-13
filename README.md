@@ -94,12 +94,12 @@ Click this bookmark while viewing a specific photo or video in PiGallery2 to ope
 ```javascript
 javascript:(function(){
   const p = new URL(window.location.href);
-  if (p.pathname.includes('/gallery')) {
+  if (p.pathname.includes('/gallery') || p.pathname.includes('/search')) {
     const base = p.origin.replace(/:\d+$/, ':<METADATA_API_PORT>');
     const target = base + '/meta/index.html?img=' + encodeURIComponent(p.href);
     window.open(target, '_blank');
   } else {
-    alert('Not a PiGallery2 image page');
+    alert('Not a PiGallery2 image, search or album page');
   }
 })();
 ```
