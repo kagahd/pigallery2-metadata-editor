@@ -3,7 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    entrypoint: /exifapi/start.sh
     container_name: pigallery2_metadata_editor
     environment:
       - NODE_ENV=production # set to 'debug' for full debug logging
