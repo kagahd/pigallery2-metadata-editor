@@ -3,7 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    entrypoint: /exifapi/start.sh
     container_name: pigallery2_metadata_editor
     environment:
       - NODE_ENV=production # set to 'debug' for full debug logging
@@ -15,6 +14,6 @@ services:
       - "<YOUR_PIGALLERY2_IMAGES_PATH>:/app/data/images" # CHANGE ME
     ports:
       - 9088:80    # PiGallery2 external:internal ports
-      - 9089:9089  # Metadata-API external:internal ports
+      - 9090:9090  # Metadata-API external:internal ports
     restart: unless-stopped
 
