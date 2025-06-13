@@ -147,14 +147,15 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 function convertGalleryUrlToPath(urlString) {
   const parsed = new URL(urlString);
-  const galleryMatch = parsed.pathname.match(/\/gallery\/(.+)/);
   const filename = parsed.searchParams.get("p");
 
-  if (!galleryMatch || !filename) {
-    throw new Error("Invalid PiGallery2 URL");
-  }
+  if (!filename) throw new Error("Invalid PiGallery2 URL");
 
-  const decodedDir = decodeURIComponent(galleryMatch[1]);
-  return `/app/data/images/${decodedDir}/${filename}`;
+  // If it is a gallery URL, we extract the directory path from the URL
+  const decodedDir = parsed.pathname.includes('/gallery')
+      ? decodeURIComponent(parsed.pathname.match(/\/gallery\/(.+)/)[1])
+      : ''; // No extra directory for search
+
+  return `/app/data/images/${decodedDir ? decodedDir + '/' : ''}${filename}`;
 }
 
