@@ -14,3 +14,8 @@ if kill -0 $FLASK_PID 2>/dev/null; then
 else
   echo "❌ Error: Metadata-API could not be started."
 fi
+
+# Start PiGallery2
+cd /app
+echo "Start PiGallery2..."
+exec node ./src/backend/index.js --expose-gc --config-path="/app/data/config/config.json"
